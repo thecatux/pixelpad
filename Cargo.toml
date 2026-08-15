@@ -1,0 +1,24 @@
+[package]
+name = "pixelpad"
+version = "0.1.0"
+edition = "2021"
+description = "A tiny pixel-styled terminal text editor with a sandboxed Lua plugin system."
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/YOUR_USERNAME/pixelpad"
+keywords = ["editor", "terminal", "tui", "lua", "text-editor"]
+categories = ["text-editors", "command-line-utilities"]
+
+[[bin]]
+name = "pixelpad"
+path = "src/main.rs"
+
+[dependencies]
+crossterm = "0.27"
+mlua = { version = "0.9", features = ["lua54", "vendored"] }
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true
